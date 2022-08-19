@@ -1,8 +1,11 @@
 package modelo;
 
+import java.util.Calendar;
+
 public class SeguroCoche extends Poliza {
 	protected String matricula;
 	protected int anyoCarnet;
+	
 	
 	//Constructor vacio
 	public SeguroCoche() {
@@ -47,15 +50,16 @@ public class SeguroCoche extends Poliza {
 	//Metodo a implementar en la subclase para calcular la prima
 	@Override
 	public double calcularPrima() {
-		int antiguedad=super.anyo;
+		int antSeguro=Calendar.getInstance().get(Calendar.YEAR)-super.anyo;
+		int antCarnet=Calendar.getInstance().get(Calendar.YEAR)-anyoCarnet;
 		double prima=super.primaBase;
 		
-		if (super.anyo>10) {
-			antiguedad=10;
+		if (antSeguro>10) {
+			antSeguro=10;
 		}
-		prima=(prima-((prima*0.015)*antiguedad))+(prima*(super.numSiniestrosHistoricos*0.03));
+		prima=(prima-((prima*0.015)*antSeguro))+(prima*(super.numSiniestrosHistoricos*0.03));
 		
-		if(antiguedad<5) {
+		if(antCarnet<5) {
 			prima=prima+75;
 		}
 		

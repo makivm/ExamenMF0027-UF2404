@@ -9,7 +9,7 @@ public class PruebaSeguro {
 		System.out.println("Seguro 1: "+s1);
 
 		SeguroCoche s2= new SeguroCoche("c12456H", "Macarena", 
-				"Villalba Morales", "26975743D", 4, "Trimestral", 150, 0, "1957KPG", 4);
+				"Villalba Morales", "26975743D", 2018, "Trimestral", 150, 0, "1957KPG", 2018);
 		System.out.println("Seguro 2: "+s2);
 		
 		System.out.println("La prima para el seguro con id de Poliza" +s2.getIdPoliza()+ "es de: "+s2.calcularPrima()+" euros");
